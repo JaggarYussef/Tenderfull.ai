@@ -1,0 +1,7 @@
+.env 
+logs
+*.zip
+model/saved_model/
+inference/saved_model
+data
+*.tfstate
