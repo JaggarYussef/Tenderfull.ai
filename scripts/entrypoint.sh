@@ -1,4 +1,4 @@
-
+#!/bin/bash
 
 check_pythonpath() {
     if [ -z "${PYTHONPATH}" ]; then

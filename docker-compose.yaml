@@ -61,11 +61,5 @@ services:
       timeout: 30s
       retries: 3
 
-  lint:
-    image: alpine/flake8
-    volumes:
-      - .:/code
-    entrypoint: ["/bin/sh", "-c", "flake8 --config=/code/.flake8 /code"]
-
 volumes:
   postgres-db-volume:
