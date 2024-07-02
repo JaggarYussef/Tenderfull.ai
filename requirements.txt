@@ -1,8 +1,10 @@
 pandas
-transformers
 apache-airflow-providers-docker
 datasets
 sqlalchemy
 psycopg2-binary
 flake8
+tensorflow[and-cuda]
 requests
+transformers
+sentence-transformers

@@ -51,6 +51,7 @@ services:
       - ./plugins:/opt/airflow/plugins
       - ./scripts:/opt/airflow/scripts
       - ./data:/opt/airflow/data
+      - ./model/:/opt/airflow/model
 
     user: "${AIRFLOW_UID:-50000}:0"
     ports:
