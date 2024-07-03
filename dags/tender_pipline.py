@@ -34,10 +34,10 @@ with tender_dag:
                 bash_command='echo "Starting pipeline..."'
         )
 
-        # fetch_data = PythonOperator(
-        #         task_id= 'fetch_data',
-        #         python_callable= data_fetcher
-        # )
+        fetch_data = PythonOperator(
+                task_id= 'fetch_data',
+                python_callable= data_fetcher
+        )
 
         process_data = PythonOperator(
                 task_id= 'clean_data',
@@ -53,4 +53,4 @@ with tender_dag:
 
 
 
-start_pipeline >>  process_data >> data_ingestor_task
+start_pipeline >>  fetch_data >> process_data 
