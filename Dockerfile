@@ -12,6 +12,7 @@ USER $AIRFLOW_UID
 
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --upgrade typing-extensions
 
 USER root
 

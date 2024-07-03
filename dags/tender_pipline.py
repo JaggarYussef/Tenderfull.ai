@@ -7,6 +7,7 @@ from scripts.preprocessor import generate_clean_data
 from sqlalchemy import create_engine
 from scripts.models import Base
 from scripts.ingester import ingest_data as data_ingestion_funcion
+from model.run_model import start_model
 import os
 
 PG_USER = os.getenv("POSTGRES_USER")
@@ -51,6 +52,11 @@ with tender_dag:
                 op_args=[DATABASE_URI]
         )
 
+        similarity_model = PythonOperator(
+                task_id= 'running_model',
+                python_callable = start_model
+        )
 
 
-start_pipeline >>  fetch_data >> process_data 
+
+start_pipeline >>  fetch_data >> process_data >> data_ingestor_task >> similarity_model

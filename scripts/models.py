@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, DateTime, Text, create_engine
+from sqlalchemy import Column, String, DateTime, Text, Integer, Float, create_engine
 from sqlalchemy.ext.declarative import declarative_base
 import os
 import uuid
@@ -16,3 +16,11 @@ class Tender(Base):
     description_paragraph = Column(Text, nullable=False)
     status = Column(String(20), nullable=False)
     workspace_id = Column(String, nullable=False, default=str(uuid.uuid4()))
+
+class UserInput(Base):
+    __tablename__ = 'user_input'
+
+    id = Column(Integer, primary_key=True, index=True)
+    query = Column(Text, nullable=False)
+    email = Column(String, nullable=False)
+    score = Column(Float, nullable=False)
