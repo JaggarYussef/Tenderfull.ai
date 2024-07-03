@@ -194,3 +194,59 @@ These tables provide a clear representation of the schema for both the `tenders`
 | sentence-transformers/LaBSE                                 | 0.285         | 0.827        | 0.188      |
 | sentence-transformers/all-MiniLM-L6-v2                      | 0.291         | 0.172        | 0.056      |
 | BAAI/bge-m3                                                 | 0.492         | 0.90         | 0.288      |
+
+
+
+
+## Installation Guide
+
+### Prerequisites
+
+- Ensure you have Docker and Docker Compose installed on your system. You can download Docker from [here](https://www.docker.com/products/docker-desktop) and Docker Compose from [here](https://docs.docker.com/compose/install/).
+
+### Steps
+
+1. **Clone the Repository**
+
+   First, clone the repository to your local machine:
+
+   ```sh
+   git clone git@github.com:JaggarYussef/Tenderfull.ai.git
+   cd Tenderfull.ai
+   ```
+
+2. **Set Up Environment Variables**
+
+   Create a `.env` file in the root directory of your project and add any necessary environment variables. This might include configurations for your database, email service, or other services you are using.
+
+   Example `.env` file:
+
+   ```env
+   POSTGRES_USER=your_postgres_user
+   POSTGRES_PASSWORD=your_postgres_password
+   POSTGRES_DB=your_postgres_db
+   ```
+
+3. **Build and Run the Docker Containers**
+
+   Use Docker Compose to build and start the containers:
+
+   ```sh
+   docker-compose up --build
+   ```
+
+   This command will build the images and start the containers as specified in your `docker-compose.yml` file.
+
+4. **Accessing the Services**
+
+   - **Airflow**: You can access the Airflow webserver at `http://localhost:8080`.
+   - **PgAdmin**: You can access PgAdmin at `http://localhost:5050`.
+   - **FastAPI**: The FastAPI application should be accessible at `http://localhost:8000`.
+   - **Streamlit**: The Streamlit application should be accessible at `http://localhost:8501`.
+
+   Adjust the ports if you have customized them in your `docker-compose.yml`.
+
+
+Make sure to adjust the services and their configurations according to your project's needs.
+
+By following these steps, you should be able to set up and run your data engineering project using Docker Compose.
